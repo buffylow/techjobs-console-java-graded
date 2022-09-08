@@ -98,8 +98,14 @@ public class JobData {
         // load data, if not already loaded
         loadData();
 
-        // TODO - implement this method
-        return null;
+        // TODO - implement this method ha i get it now
+        for (HashMap<String, String> job: allJobs) {
+            String aPair = job.entrySet().toString();
+            if (aPair.contains(value)) {
+
+                System.out.println(aPair);
+            }
+        }return null;
     }
 
     /**
