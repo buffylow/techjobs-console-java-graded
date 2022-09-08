@@ -1,4 +1,4 @@
-import org.junit.*;
+import org.junit.Before;
 
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
@@ -20,15 +20,15 @@ public class TechJobsTest {
     // set up an alternative output stream to capture output
     // this needs to be done before every test so we don't contaminate test output
     @Before
+    public void runProgramWithInput() {
+        Scanner in = new Scanner(input);
+        TechJobs.in = in;
+        TechJobs.main(null);
     public void setUpOutputStream() {
         baos = new ByteArrayOutputStream();
         System.setOut(new PrintStream(baos));
     }
 
-    private static String runProgramWithInput(String input) {
-        Scanner in = new Scanner(input);
-        TechJobs.in = in;
-        TechJobs.main(null);
         return baos.toString();
     }
 
@@ -40,7 +40,7 @@ public class TechJobsTest {
     @Test
     public void testPrintJobs() throws IOException {
         String input = "0\n2\nBuzzbold\nx";
-        String output = runProgramWithInput(input);
+        String output = runProgramWithInput();
         String expected = getFileContents("src/test/resources/testPrintJobs.txt");
         assertEquals(expected, output);
     }
@@ -48,7 +48,7 @@ public class TechJobsTest {
     @Test
     public void testPrintJobsNoResults() throws IOException {
         String input = "0\n2\nChicago\nx";
-        String output = runProgramWithInput(input);
+        String output = runProgramWithInput();
         String expected = getFileContents("src/test/resources/testPrintJobsNoResults.txt");
         assertEquals(expected, output);
     }
@@ -56,7 +56,7 @@ public class TechJobsTest {
     @Test
     public void testFindByValue() throws IOException {
         String input = "0\n0\nRuby\nx";
-        String output = runProgramWithInput(input);
+        String output = runProgramWithInput();
         String expected = getFileContents("src/test/resources/testFindByValue.txt");
         assertEquals(expected, output);
     }
@@ -64,7 +64,7 @@ public class TechJobsTest {
     @Test
     public void testCaseInsensitiveSearch() throws IOException {
         String input = "0\n3\nnew YORk\nx";
-        String output = runProgramWithInput(input);
+        String output = runProgramWithInput();
         String expected = getFileContents("src/test/resources/testCaseInsensitiveSearch.txt");
         assertEquals(expected, output);
     }
