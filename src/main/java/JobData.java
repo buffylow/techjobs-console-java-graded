@@ -99,14 +99,28 @@ public class JobData {
         loadData();
 
         // TODO - implement this method ha i get it now
+     
         for (HashMap<String, String> job: allJobs) {
             String aPair = job.entrySet().toString();
-            if (aPair.contains(value)) {
+             String lowercasePair = aPair.toLowerCase();
+            String lowercaseValue = value.toLowerCase();
+            
+            
+            
+        }return null;
+    }
+    
+    
+    
+    
+     /**
+     desensitizing called by lowercase;also making tuples for words that are different in capitalization but are the same word
+     
+     if (aPair.contains(value)) {
 
                 System.out.println(aPair);
             }
-        }return null;
-    }
+            */
 
     /**
      * Read in data from a CSV file and store it in a list
