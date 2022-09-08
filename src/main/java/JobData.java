@@ -101,7 +101,7 @@ public class JobData {
         // TODO - implement this method ha i get it now
      
         for (HashMap<String, String> job: allJobs) {
-            String aPair = job.entrySet().toString
+            String aPair = job.entrySet().toString().toLowerCase();
             String lowercasePair = aPair.toLowerCase();
             String lowercaseValue = value.toLowerCase();
             if (lowercasePair.contains(lowercaseValue)) {
