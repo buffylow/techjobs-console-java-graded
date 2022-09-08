@@ -101,12 +101,14 @@ public class JobData {
         // TODO - implement this method ha i get it now
      
         for (HashMap<String, String> job: allJobs) {
-            String aPair = job.entrySet().toString();
-             String lowercasePair = aPair.toLowerCase();
+            String aPair = job.entrySet().toString
+            String lowercasePair = aPair.toLowerCase();
             String lowercaseValue = value.toLowerCase();
-            
-            
-            
+            if (lowercasePair.contains(lowercaseValue)) {
+                System.out.println("%n*****");  
+                job.forEach((k, v) -> System.out.println(k +": "+ v));
+                System.out.println("*****");     
+            }
         }return null;
     }
     
@@ -114,7 +116,8 @@ public class JobData {
     
     
      /**
-     desensitizing called by lowercase;also making tuples for words that are different in capitalization but are the same word
+    1. desensitizing by lowercase;also making tuples for words that are different in capitalization but are the same word
+     2. going over each hash map and printing entries with (k)ey and (v)alue
      
      if (aPair.contains(value)) {
 
