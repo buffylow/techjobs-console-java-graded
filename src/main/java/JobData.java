@@ -78,6 +78,8 @@ public class JobData {
         for (HashMap<String, String> row : allJobs) {
 
             String aValue = row.get(column);
+            aValue = aValue.toLowerCase();
+            value = value.toLowerCase();
 
             if (aValue.contains(value)) {
                 jobs.add(row);
@@ -99,17 +101,15 @@ public class JobData {
         loadData();
 
         // TODO - implement this method ha i get it now
-     
+
+        ArrayList<HashMap<String, String>> jobReturn = new ArrayList<>();
         for (HashMap<String, String> job: allJobs) {
-            String aPair = job.entrySet().toString().toLowerCase();
-            String lowercasePair = aPair.toLowerCase();
+            String jobList = job.entrySet().toString().toLowerCase();
             String lowercaseValue = value.toLowerCase();
-            if (lowercasePair.contains(lowercaseValue)) {
-                System.out.println("%n*****");  
-                job.forEach((k, v) -> System.out.println(k +": "+ v));
-                System.out.println("*****");     
+            if (jobList.contains(lowercaseValue)) {
+                jobReturn.add(job);
             }
-        }return null;
+        } return jobReturn;
     }
     
     
