@@ -12,6 +12,7 @@ public class TechJobs {
 
     public static void main(String[] args) {
 
+
         // Initialize our field map with key/name pairs
         HashMap<String, String> columnChoices = new HashMap<>();
         columnChoices.put("core competency", "Skill");
@@ -70,6 +71,7 @@ public class TechJobs {
         }
     }
 
+
     // ﻿Returns the key of the selected item from the choices Dictionary
     private static String getUserSelection(String menuHeader, HashMap<String, String> choices) {
 
@@ -126,7 +128,7 @@ public class TechJobs {
                 System.out.println("*****");
             }
         } else {
-            System.out.println("No Results");
+            System.out.print("No Results");
         }
     }
 }
